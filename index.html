@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MPI Prakarya VII — Budi Daya Tanaman Obat</title>
+<style>
+:root{--green:#276749;--mint:#e7f5e9;--cream:#fffaf0;--gold:#e7b75b;--ink:#20332a;--pink:#f4e8f3}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#e7f5e9,#fffaf0);color:var(--ink);line-height:1.55}
+header{background:linear-gradient(120deg,#1f5b45,#3f8a5d);color:white;padding:28px 18px;text-align:center}
+header .leaf{font-size:42px}h1{margin:4px 0;font-size:clamp(1.6rem,4vw,2.5rem)}header p{margin:6px auto;max-width:720px}
+.wrap{max-width:1000px;margin:auto;padding:18px}.topline{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:12px 0}
+.pill{background:#ffffff22;border:1px solid #ffffff66;padding:5px 12px;border-radius:99px;font-size:.9rem}
+nav{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;position:sticky;top:0;background:#fffdf5ed;padding:10px;z-index:3;border-bottom:1px solid #d8e6d8}
+button{cursor:pointer;border:0;border-radius:12px;padding:11px 15px;font-weight:bold;background:var(--green);color:white;font-size:.95rem}
+button:hover{filter:brightness(1.08)}button.secondary{background:#e4efe5;color:var(--green)}button:focus{outline:3px solid var(--gold)}
+nav button.active{background:var(--gold);color:#26382c}
+.panel{display:none;background:white;border:1px solid #dce9dc;border-radius:18px;padding:22px;margin:18px 0;box-shadow:0 5px 18px #214a3010}
+.panel.active{display:block}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
+.bigemoji{font-size:100px;text-align:center;background:var(--mint);border-radius:20px;padding:20px}
+h2{color:var(--green);margin-top:0}h3{color:#397653}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.card{background:var(--cream);border:1px solid #e2eadc;border-radius:15px;padding:15px}.card .emoji{font-size:42px}
+.callout{background:var(--mint);border-left:5px solid var(--green);padding:12px 15px;border-radius:8px;margin:14px 0}
+.steps{counter-reset:step;list-style:none;padding:0}.steps li{counter-increment:step;margin:10px 0;padding:12px 12px 12px 52px;background:#f6faf4;border-radius:12px;position:relative}.steps li:before{content:counter(step);position:absolute;left:13px;top:12px;background:var(--green);color:white;width:27px;height:27px;border-radius:50%;display:grid;place-items:center;font-weight:bold}
+label{display:block;margin:12px 0;padding:10px;background:#f8faf6;border-radius:10px;cursor:pointer}input[type=radio]{margin-right:8px}
+.feedback{font-weight:bold;margin-top:12px}.correct{color:#207346}.wrong{color:#a43b35}
+select{padding:10px;border-radius:8px;border:1px solid #9bb8a0;margin:5px;max-width:100%}
+footer{text-align:center;padding:25px;color:#456653;font-size:.9rem}
+.progress{height:8px;background:#e0e9df;border-radius:10px;overflow:hidden;margin:10px 0}.progress div{height:100%;width:0;background:var(--gold);transition:width .3s}
+@media(max-width:650px){.hero{grid-template-columns:1fr}.bigemoji{font-size:70px}.panel{padding:16px}}
+</style>
+</head>
+<body>
+<header>
+<div class="leaf">🌿 🪴 🌱</div>
+<h1>BUDI DAYA TANAMAN OBAT</h1>
+<p>Media Pembelajaran Interaktif (MPI) • Prakarya • Kelas VII</p>
+<div class="topline"><span class="pill">SMP Negeri 12 Kolaka Utara</span><span class="pill">Belajar • Amati • Praktik • Evaluasi</span></div>
+</header>
+<nav id="nav">
+<button class="active" data-tab="beranda">Beranda</button><button data-tab="materi">Materi</button><button data-tab="langkah">Langkah Budi Daya</button><button data-tab="aktivitas">Aktivitas</button><button data-tab="kuis">Kuis</button><button data-tab="refleksi">Refleksi</button>
+</nav>
+<main class="wrap">
+<section class="panel active" id="beranda">
+<div class="hero"><div><h2>Halo, Sahabat Tanaman! 👋</h2><p>Siap menjadi pekebun cilik? Di media ini kamu akan mengenal tanaman obat, mengetahui cara menanam dan merawatnya, lalu menguji pemahamanmu melalui aktivitas dan kuis.</p><div class="callout"><b>Tujuan pembelajaran</b><ul><li>Mengidentifikasi contoh dan bagian tanaman obat.</li><li>Menjelaskan kebutuhan dasar tanaman untuk tumbuh.</li><li>Mengurutkan tahapan budi daya tanaman obat.</li><li>Merancang praktik penanaman sederhana dengan aman dan bertanggung jawab.</li></ul></div><button onclick="go('materi')">Mulai Belajar →</button></div><div class="bigemoji">🌿<br><span style="font-size:18px">Tanaman sehat, lingkungan bermanfaat</span></div></div>
+</section>
+<section class="panel" id="materi">
+<h2>1. Mengenal Tanaman Obat</h2><p>Tanaman obat adalah tanaman yang bagian tertentu—misalnya daun, rimpang, batang, bunga, atau buah—dimanfaatkan secara tradisional untuk membantu menjaga kesehatan. Tanaman obat perlu dikenali dengan benar dan digunakan secara bijak.</p>
+<div class="cards">
+<div class="card"><div class="emoji">🫚</div><h3>Jahe</h3><p><b>Bagian:</b> rimpang di dalam tanah.<br><b>Budi daya:</b> ditanam dari potongan rimpang yang memiliki mata tunas.</p></div>
+<div class="card"><div class="emoji">🌿</div><h3>Kunyit</h3><p><b>Bagian:</b> rimpang.<br><b>Budi daya:</b> membutuhkan media gembur, air cukup, dan sinar matahari yang sesuai.</p></div>
+<div class="card"><div class="emoji">🍃</div><h3>Sirih</h3><p><b>Bagian:</b> daun.<br><b>Budi daya:</b> dapat diperbanyak dengan stek batang dan memerlukan tempat merambat.</p></div>
+<div class="card"><div class="emoji">🌱</div><h3>Serai</h3><p><b>Bagian:</b> batang dan daun.<br><b>Budi daya:</b> dapat ditanam dari anakan, di tempat yang mendapat cahaya cukup.</p></div>
+<div class="card"><div class="emoji">🌵</div><h3>Lidah buaya</h3><p><b>Bagian:</b> daun berdaging.<br><b>Budi daya:</b> media harus memiliki drainase baik; hindari penyiraman berlebihan.</p></div>
+<div class="card"><div class="emoji">🌼</div><h3>Temulawak</h3><p><b>Bagian:</b> rimpang.<br><b>Budi daya:</b> ditanam dari rimpang sehat pada media gembur.</p></div>
+</div>
+<div class="callout"><b>Ingat!</b> Tanaman obat bukan pengganti diagnosis atau perawatan tenaga kesehatan. Jangan mencoba atau meminum ramuan tanpa pendampingan orang dewasa dan arahan tenaga kesehatan.</div>
+<h3>Apa yang dibutuhkan tanaman?</h3><p>🌞 Cahaya yang sesuai • 💧 Air secukupnya • 🌱 Media tanam gembur • 🌬️ Udara • 🪴 Ruang tumbuh • 🧑‍🌾 Perawatan rutin</p>
+</section>
+<section class="panel" id="langkah">
+<h2>2. Tahapan Budi Daya Tanaman Obat</h2><p>Amati urutan berikut. Setiap tahap membantu tanaman tumbuh sehat.</p>
+<ol class="steps"><li><b>Menentukan jenis tanaman.</b> Pilih tanaman yang sesuai dengan iklim, ruang, dan alat yang tersedia.</li><li><b>Menyiapkan alat dan bahan.</b> Siapkan pot/polybag berlubang, media tanam, bibit atau bahan perbanyakan, air, dan alat sederhana.</li><li><b>Menyiapkan media tanam.</b> Gunakan tanah gembur yang dicampur kompos matang secukupnya. Pastikan air dapat mengalir.</li><li><b>Memilih dan menanam bibit.</b> Pilih bibit sehat. Tanam sesuai jenisnya, lalu tutup akar/rimpang dengan media secukupnya.</li><li><b>Menyiram.</b> Basahi media secukupnya; jangan sampai tergenang.</li><li><b>Merawat tanaman.</b> Atur cahaya, cabut gulma, amati hama, dan tambahkan penyangga bila diperlukan.</li><li><b>Memantau dan memanen.</b> Catat pertumbuhan. Panen hanya saat tanaman cukup umur dan bagian yang dipanen sesuai jenisnya.</li></ol>
+<div class="callout"><b>Keselamatan kerja:</b> gunakan alat sesuai petunjuk guru, cuci tangan setelah praktik, jangan mencicipi tanaman, dan rapikan kembali alat serta area kerja.</div>
+</section>
+<section class="panel" id="aktivitas">
+<h2>3. Aktivitas Interaktif: Pasangkan Bagian Tanaman</h2><p>Pilih bagian tanaman yang sesuai dengan contoh. Setelah semua terisi, tekan <b>Periksa Jawaban</b>.</p>
+<div class="card"><label>Jahe: <select id="m1"><option value="">Pilih bagian</option><option>Daun</option><option>Rimpang</option><option>Batang</option></select></label>
+<label>Sirih: <select id="m2"><option value="">Pilih bagian</option><option>Daun</option><option>Rimpang</option><option>Batang</option></select></label>
+<label>Serai: <select id="m3"><option value="">Pilih bagian</option><option>Daun dan batang</option><option>Rimpang</option><option>Bunga</option></select></label>
+<label>Lidah buaya: <select id="m4"><option value="">Pilih bagian</option><option>Buah</option><option>Daun berdaging</option><option>Rimpang</option></select></label>
+<button onclick="checkMatch()">Periksa Jawaban</button><div id="matchFeedback" class="feedback" aria-live="polite"></div></div>
+<h3>Tantangan berpikir</h3><p>Kamu memiliki pot yang sering menampung air setelah disiram. Apa tindakan terbaik?</p>
+<label><input type="radio" name="tantangan" value="a"> Menyiram lebih banyak agar tanaman segar.</label><label><input type="radio" name="tantangan" value="b"> Memastikan lubang drainase berfungsi dan mengurangi penyiraman berlebihan.</label><label><input type="radio" name="tantangan" value="c"> Menutup permukaan pot dengan plastik rapat.</label>
+<button onclick="checkChallenge()">Cek Tantangan</button><div id="challengeFeedback" class="feedback" aria-live="polite"></div>
+</section>
+<section class="panel" id="kuis">
+<h2>4. Kuis Pemahaman</h2><p>Pilih satu jawaban paling tepat untuk setiap soal. Nilai akan muncul setelah kamu menekan tombol <b>Lihat Nilai</b>.</p>
+<form id="quizForm">
+<div class="card"><b>1. Bagian jahe yang biasa digunakan sebagai bahan perbanyakan adalah …</b><label><input type="radio" name="q1" value="a"> Bunga</label><label><input type="radio" name="q1" value="b"> Rimpang sehat yang memiliki mata tunas</label><label><input type="radio" name="q1" value="c"> Buah</label></div>
+<div class="card"><b>2. Mengapa pot perlu memiliki lubang drainase?</b><label><input type="radio" name="q2" value="a"> Agar media selalu tergenang</label><label><input type="radio" name="q2" value="b"> Agar akar tidak mendapat udara</label><label><input type="radio" name="q2" value="c"> Agar kelebihan air dapat keluar</label></div>
+<div class="card"><b>3. Contoh tanaman obat yang dapat diperbanyak dengan stek batang adalah …</b><label><input type="radio" name="q3" value="a"> Sirih</label><label><input type="radio" name="q3" value="b"> Padi</label><label><input type="radio" name="q3" value="c"> Jagung</label></div>
+<div class="card"><b>4. Tindakan perawatan yang tepat adalah …</b><label><input type="radio" name="q4" value="a"> Menyiram tanpa memeriksa kelembapan media</label><label><input type="radio" name="q4" value="b"> Mengamati pertumbuhan dan menyiram secukupnya</label><label><input type="radio" name="q4" value="c"> Membiarkan gulma memenuhi pot</label></div>
+<div class="card"><b>5. Sikap yang benar saat praktik budi daya adalah …</b><label><input type="radio" name="q5" value="a"> Mencicipi daun yang belum dikenal</label><label><input type="radio" name="q5" value="b"> Menggunakan alat tanpa arahan</label><label><input type="radio" name="q5" value="c"> Mengikuti arahan guru dan menjaga kebersihan</label></div>
+<button type="button" onclick="gradeQuiz()">Lihat Nilai</button> <button type="reset" class="secondary" onclick="resetQuiz()">Ulangi Kuis</button>
+</form><div class="progress"><div id="progressBar"></div></div><div id="quizResult" class="feedback" aria-live="polite"></div>
+</section>
+<section class="panel" id="refleksi">
+<h2>5. Refleksi dan Tindak Lanjut</h2><p>Renungkan pengalaman belajarmu. Pilih jawaban yang paling sesuai.</p>
+<label>Hal yang paling saya pahami:
+<select id="reflect1"><option value="">Pilih jawaban</option><option>Jenis dan bagian tanaman obat</option><option>Langkah budi daya</option><option>Perawatan dan keselamatan kerja</option></select></label>
+<label>Hal yang masih ingin saya pelajari:
+<select id="reflect2"><option value="">Pilih jawaban</option><option>Memilih bibit</option><option>Mencampur media tanam</option><option>Mengenali masalah pertumbuhan</option><option>Memantau pertumbuhan</option></select></label>
+<label>Rencana saya setelah belajar: <textarea id="plan" rows="3" style="width:100%;padding:10px;border:1px solid #b7cbb8;border-radius:10px" placeholder="Contoh: menanam serai di pot bersama kelompok dan mencatat pertumbuhannya."></textarea></label>
+<button onclick="saveReflection()">Simpan Refleksi di Halaman Ini</button><div id="reflectFeedback" class="feedback" aria-live="polite"></div>
+<div class="callout"><b>Tugas praktik kelompok:</b> rancang penanaman satu jenis tanaman obat dalam pot/polybag. Catat nama tanaman, bahan perbanyakan, alat dan bahan, langkah kerja, jadwal perawatan, serta perubahan tinggi/jumlah daun selama dua minggu.</div>
+<button onclick="go('beranda')" class="secondary">Kembali ke Beranda</button>
+</section>
+</main>
+<footer>MPI Prakarya Kelas VII • Budi Daya Tanaman Obat<br>Belajar merawat tanaman, belajar bertanggung jawab 🌱</footer>
+<script>
+const tabs=[...document.querySelectorAll('nav button')];
+function go(id){document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));tabs.forEach(b=>b.classList.toggle('active',b.dataset.tab===id));window.scrollTo({top:0,behavior:'smooth'})}
+tabs.forEach(b=>b.addEventListener('click',()=>go(b.dataset.tab)));
+function checkMatch(){let score=0;const answers={m1:'Rimpang',m2:'Daun',m3:'Daun dan batang',m4:'Daun berdaging'};for(const [id,a] of Object.entries(answers)){if(document.getElementById(id).value===a)score++}let el=document.getElementById('matchFeedback');el.className='feedback '+(score===4?'correct':'wrong');el.textContent=`Jawaban benar: ${score} dari 4. `+(score===4?'Hebat! Semua pasangan tepat.':'Coba periksa kembali materi tanaman obat, lalu ulangi.')}
+function checkChallenge(){let v=document.querySelector('input[name="tantangan"]:checked');let el=document.getElementById('challengeFeedback');if(!v){el.className='feedback wrong';el.textContent='Pilih jawaban terlebih dahulu.';return}let ok=v.value==='b';el.className='feedback '+(ok?'correct':'wrong');el.textContent=ok?'Tepat! Drainase yang baik membantu mencegah media terlalu basah.':'Belum tepat. Pikirkan cara mengeluarkan kelebihan air dari pot.'}
+function gradeQuiz(){const key={q1:'b',q2:'c',q3:'a',q4:'b',q5:'c'};let score=0,answered=0;for(let [q,a] of Object.entries(key)){let v=document.querySelector(`input[name="${q}"]:checked`);if(v){answered++;if(v.value===a)score++}}let result=document.getElementById('quizResult');result.className='feedback '+(score>=4?'correct':'wrong');result.textContent=`Nilai: ${score*20}/100 • Jawaban terisi ${answered}/5. `+(answered<5?'Lengkapi semua soal agar hasil lebih akurat. ': '')+(score===5?'Luar biasa!':score>=4?'Bagus, pemahamanmu sudah baik.':score>=3?'Cukup baik. Pelajari kembali bagian yang belum dikuasai.':'Ayo baca kembali materi, lalu coba lagi.');document.getElementById('progressBar').style.width=(score*20)+'%'}
+function resetQuiz(){setTimeout(()=>{document.getElementById('quizResult').textContent='';document.getElementById('progressBar').style.width='0'},0)}
+function saveReflection(){let a=document.getElementById('reflect1').value,b=document.getElementById('reflect2').value,c=document.getElementById('plan').value.trim();let el=document.getElementById('reflectFeedback');if(!a||!b||!c){el.className='feedback wrong';el.textContent='Lengkapi dua pilihan refleksi dan rencana tindak lanjut.';return}el.className='feedback correct';el.textContent='Refleksi sudah tercatat pada halaman ini. Silakan salin rencana jika ingin menyimpannya di buku catatan.'}
+</script>
+</body></html>
